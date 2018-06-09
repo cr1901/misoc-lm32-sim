@@ -59,6 +59,7 @@ post-synth: $(BUILD_DIR)/$(POST_DUT_TOP).v
 
 # Post-synthesis output verilog
 $(BUILD_DIR)/$(POST_DUT_TOP).v: $(GATEWARE_DIR)/$(POST_YS).ys
+	mkdir -p $(BUILD_DIR)
 	cd $(GATEWARE_DIR) && yosys -q -l ../../../$(BUILD_DIR)/$(POST_DUT_TOP).rpt $(POST_YS).ys
 
 $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(POST_DUT_TOP).v $(MY_POST_SYNTH_SOURCES) $(BUILD_DIR)/firmware.hex
