@@ -1,0 +1,6 @@
+[submodule "extern/picorv32"]
+	path = extern/picorv32
+	url = https://github.com/cr1901/picorv32
+[submodule "extern/lm32"]
+	path = extern/lm32
+	url = https://github.com/m-labs/lm32.git
