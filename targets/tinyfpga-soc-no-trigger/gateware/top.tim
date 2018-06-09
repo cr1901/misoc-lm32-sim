@@ -1,0 +1,181 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        lc40_13_14_6 (LogicCell40) [clk] -> lcout: 0.896 ns
+     0.896 ns net_49964 (lm32_cpu.operand_0_x[0])
+        odrv_13_14_49964_14069 (Odrv12) I -> O: 0.796 ns
+        t5812 (Sp12to4) I -> O: 0.662 ns
+        t5811 (Span4Mux_v0) I -> O: 0.300 ns
+        t5810 (LocalMux) I -> O: 0.486 ns
+        inmux_6_14_26219_26250 (InMux) I -> O: 0.382 ns
+        lc40_6_14_1 (LogicCell40) in1 -> lcout: 0.589 ns
+     4.111 ns net_22093 ($abc$32574$n3995)
+        t3503 (LocalMux) I -> O: 0.486 ns
+        inmux_7_14_30296_30356 (InMux) I -> O: 0.382 ns
+        lc40_7_14_6 (LogicCell40) in0 -> lcout: 0.662 ns
+     5.641 ns net_26175 ($abc$32574$n5443)
+        odrv_7_14_26175_22223 (Odrv12) I -> O: 0.796 ns
+        t3804 (LocalMux) I -> O: 0.486 ns
+        inmux_9_14_37768_37808 (InMux) I -> O: 0.382 ns
+        lc40_9_14_1 (LogicCell40) in1 -> carryout: 0.382 ns
+     7.687 ns net_37806 ($auto$maccmap.cc:240:synth$4415.C[1])
+        lc40_9_14_2 (LogicCell40) carryin -> carryout: 0.186 ns
+     7.873 ns net_37812 ($auto$maccmap.cc:240:synth$4415.C[2])
+        lc40_9_14_3 (LogicCell40) carryin -> carryout: 0.186 ns
+     8.059 ns net_37818 ($auto$maccmap.cc:240:synth$4415.C[3])
+        lc40_9_14_4 (LogicCell40) carryin -> carryout: 0.186 ns
+     8.245 ns net_37824 ($auto$maccmap.cc:240:synth$4415.C[4])
+        lc40_9_14_5 (LogicCell40) carryin -> carryout: 0.186 ns
+     8.432 ns net_37830 ($auto$maccmap.cc:240:synth$4415.C[5])
+        lc40_9_14_6 (LogicCell40) carryin -> carryout: 0.186 ns
+     8.618 ns net_37836 ($auto$maccmap.cc:240:synth$4415.C[6])
+        lc40_9_14_7 (LogicCell40) carryin -> carryout: 0.186 ns
+     8.804 ns net_37842 ($auto$maccmap.cc:240:synth$4415.C[7])
+        t341 (ICE_CARRY_IN_MUX) carryinitin -> carryinitout: 0.289 ns
+        lc40_9_15_0 (LogicCell40) carryin -> carryout: 0.186 ns
+     9.279 ns net_37923 ($auto$maccmap.cc:240:synth$4415.C[8])
+        lc40_9_15_1 (LogicCell40) carryin -> carryout: 0.186 ns
+     9.465 ns net_37929 ($auto$maccmap.cc:240:synth$4415.C[9])
+        lc40_9_15_2 (LogicCell40) carryin -> carryout: 0.186 ns
+     9.651 ns net_37935 ($auto$maccmap.cc:240:synth$4415.C[10])
+        lc40_9_15_3 (LogicCell40) carryin -> carryout: 0.186 ns
+     9.837 ns net_37941 ($auto$maccmap.cc:240:synth$4415.C[11])
+        lc40_9_15_4 (LogicCell40) carryin -> carryout: 0.186 ns
+    10.023 ns net_37947 ($auto$maccmap.cc:240:synth$4415.C[12])
+        lc40_9_15_5 (LogicCell40) carryin -> carryout: 0.186 ns
+    10.210 ns net_37953 ($auto$maccmap.cc:240:synth$4415.C[13])
+        lc40_9_15_6 (LogicCell40) carryin -> carryout: 0.186 ns
+    10.396 ns net_37959 ($auto$maccmap.cc:240:synth$4415.C[14])
+        lc40_9_15_7 (LogicCell40) carryin -> carryout: 0.186 ns
+    10.582 ns net_37965 ($auto$maccmap.cc:240:synth$4415.C[15])
+        t342 (ICE_CARRY_IN_MUX) carryinitin -> carryinitout: 0.289 ns
+        lc40_9_16_0 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.057 ns net_38046 ($auto$maccmap.cc:240:synth$4415.C[16])
+        lc40_9_16_1 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.243 ns net_38052 ($auto$maccmap.cc:240:synth$4415.C[17])
+        lc40_9_16_2 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.429 ns net_38058 ($auto$maccmap.cc:240:synth$4415.C[18])
+        lc40_9_16_3 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.615 ns net_38064 ($auto$maccmap.cc:240:synth$4415.C[19])
+        lc40_9_16_4 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.801 ns net_38070 ($auto$maccmap.cc:240:synth$4415.C[20])
+        lc40_9_16_5 (LogicCell40) carryin -> carryout: 0.186 ns
+    11.988 ns net_38076 ($auto$maccmap.cc:240:synth$4415.C[21])
+        lc40_9_16_6 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.174 ns net_38082 ($auto$maccmap.cc:240:synth$4415.C[22])
+        lc40_9_16_7 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.360 ns net_38088 ($auto$maccmap.cc:240:synth$4415.C[23])
+        t354 (ICE_CARRY_IN_MUX) carryinitin -> carryinitout: 0.289 ns
+        lc40_9_17_0 (LogicCell40) carryin -> carryout: 0.186 ns
+    12.835 ns net_38169 ($auto$maccmap.cc:240:synth$4415.C[24])
+        lc40_9_17_1 (LogicCell40) carryin -> carryout: 0.186 ns
+    13.021 ns net_38175 ($auto$maccmap.cc:240:synth$4415.C[25])
+        lc40_9_17_2 (LogicCell40) carryin -> carryout: 0.186 ns
+    13.207 ns net_38181 ($auto$maccmap.cc:240:synth$4415.C[26])
+        lc40_9_17_3 (LogicCell40) carryin -> carryout: 0.186 ns
+    13.393 ns net_38187 ($auto$maccmap.cc:240:synth$4415.C[27])
+        lc40_9_17_4 (LogicCell40) carryin -> carryout: 0.186 ns
+    13.579 ns net_38193 ($auto$maccmap.cc:240:synth$4415.C[28])
+        inmux_9_17_38193_38203 (InMux) I -> O: 0.382 ns
+        lc40_9_17_5 (LogicCell40) in3 -> lcout: 0.465 ns
+    14.427 ns net_34330 (lm32_cpu.adder.addsub.tmp_subResult[28])
+        odrv_9_17_34330_34466 (Odrv12) I -> O: 0.796 ns
+        t4267 (Sp12to4) I -> O: 0.662 ns
+        t4266 (Span4Mux_v1) I -> O: 0.300 ns
+        t4265 (LocalMux) I -> O: 0.486 ns
+        inmux_11_18_46439_46483 (InMux) I -> O: 0.382 ns
+        lc40_11_18_6 (LogicCell40) in0 -> lcout: 0.662 ns
+    17.714 ns net_42302 ($abc$32574$n2895_1)
+        t4913 (LocalMux) I -> O: 0.486 ns
+        inmux_11_19_46543_46579 (InMux) I -> O: 0.382 ns
+        lc40_11_19_1 (LogicCell40) in3 -> lcout: 0.465 ns
+    19.048 ns net_42420 (lm32_cpu.x_result[28])
+        odrv_11_19_42420_46260 (Odrv12) I -> O: 0.796 ns
+        t4935 (Span12Mux_h1) I -> O: 0.196 ns
+        t4934 (Sp12to4) I -> O: 0.662 ns
+        t4933 (Span4Mux_h4) I -> O: 0.465 ns
+        t4932 (Span4Mux_v4) I -> O: 0.548 ns
+        t4940 (Span4Mux_h0) I -> O: 0.217 ns
+        t4939 (Span4Mux_v0) I -> O: 0.300 ns
+        t4938 (Span4Mux_h4) I -> O: 0.465 ns
+        t4937 (Span4Mux_v0) I -> O: 0.300 ns
+        t4936 (LocalMux) I -> O: 0.486 ns
+        inmux_21_24_87923_87961 (InMux) I -> O: 0.382 ns
+        t1731 (CascadeMux) I -> O: 0.000 ns
+        lc40_21_24_1 (LogicCell40) in2 -> lcout: 0.558 ns
+    24.423 ns net_83803 ($abc$32574$n4920_1)
+        t13334 (LocalMux) I -> O: 0.486 ns
+        inmux_21_24_87937_87966 (InMux) I -> O: 0.382 ns
+        lc40_21_24_2 (LogicCell40) in1 -> lcout: 0.589 ns
+    25.880 ns net_83804 (lm32_cpu.bypass_data_1[28])
+        odrv_21_24_83804_87767 (Odrv12) I -> O: 0.796 ns
+        t13355 (Span12Mux_h6) I -> O: 0.413 ns
+        t13354 (Sp12to4) I -> O: 0.662 ns
+        t13353 (Span4Mux_v3) I -> O: 0.496 ns
+        t13352 (LocalMux) I -> O: 0.486 ns
+        inmux_14_19_58786_58832 (InMux) I -> O: 0.382 ns
+        lc40_14_19_5 (LogicCell40) in1 -> lcout: 0.589 ns
+    29.705 ns net_54655 (lm32_cpu.d_result_1[28])
+        odrv_14_19_54655_58753 (Odrv4) I -> O: 0.548 ns
+        t7257 (Span4Mux_v0) I -> O: 0.300 ns
+        t7256 (LocalMux) I -> O: 0.486 ns
+        inmux_15_17_62602_62638 (InMux) I -> O: 0.382 ns
+        lc40_15_17_1 (LogicCell40) in0 -> lcout: 0.662 ns
+    32.083 ns net_58482 ($abc$32574$n3532_1)
+        odrv_15_17_58482_58625 (Odrv4) I -> O: 0.548 ns
+        t7859 (Span4Mux_v0) I -> O: 0.300 ns
+        t7858 (Span4Mux_v1) I -> O: 0.300 ns
+        t7857 (LocalMux) I -> O: 0.486 ns
+        inmux_17_16_70651_70693 (InMux) I -> O: 0.382 ns
+    34.098 ns net_70693 ($abc$32574$n3532_1)
+        lc40_17_16_5 (LogicCell40) in1 [setup]: 0.558 ns
+    34.656 ns net_66516 (lm32_cpu.mc_arithmetic.b[28])
+
+Resolvable net names on path:
+     0.896 ns ..  3.522 ns lm32_cpu.operand_0_x[0]
+     4.111 ns ..  4.979 ns $abc$32574$n3995
+     5.641 ns ..  7.305 ns $abc$32574$n5443
+     7.687 ns ..  7.687 ns $auto$maccmap.cc:240:synth$4415.C[1]
+     7.873 ns ..  7.873 ns $auto$maccmap.cc:240:synth$4415.C[2]
+     8.059 ns ..  8.059 ns $auto$maccmap.cc:240:synth$4415.C[3]
+     8.245 ns ..  8.245 ns $auto$maccmap.cc:240:synth$4415.C[4]
+     8.432 ns ..  8.432 ns $auto$maccmap.cc:240:synth$4415.C[5]
+     8.618 ns ..  8.618 ns $auto$maccmap.cc:240:synth$4415.C[6]
+     8.804 ns ..  9.093 ns $auto$maccmap.cc:240:synth$4415.C[7]
+     9.279 ns ..  9.279 ns $auto$maccmap.cc:240:synth$4415.C[8]
+     9.465 ns ..  9.465 ns $auto$maccmap.cc:240:synth$4415.C[9]
+     9.651 ns ..  9.651 ns $auto$maccmap.cc:240:synth$4415.C[10]
+     9.837 ns ..  9.837 ns $auto$maccmap.cc:240:synth$4415.C[11]
+    10.023 ns .. 10.023 ns $auto$maccmap.cc:240:synth$4415.C[12]
+    10.210 ns .. 10.210 ns $auto$maccmap.cc:240:synth$4415.C[13]
+    10.396 ns .. 10.396 ns $auto$maccmap.cc:240:synth$4415.C[14]
+    10.582 ns .. 10.871 ns $auto$maccmap.cc:240:synth$4415.C[15]
+    11.057 ns .. 11.057 ns $auto$maccmap.cc:240:synth$4415.C[16]
+    11.243 ns .. 11.243 ns $auto$maccmap.cc:240:synth$4415.C[17]
+    11.429 ns .. 11.429 ns $auto$maccmap.cc:240:synth$4415.C[18]
+    11.615 ns .. 11.615 ns $auto$maccmap.cc:240:synth$4415.C[19]
+    11.801 ns .. 11.801 ns $auto$maccmap.cc:240:synth$4415.C[20]
+    11.988 ns .. 11.988 ns $auto$maccmap.cc:240:synth$4415.C[21]
+    12.174 ns .. 12.174 ns $auto$maccmap.cc:240:synth$4415.C[22]
+    12.360 ns .. 12.649 ns $auto$maccmap.cc:240:synth$4415.C[23]
+    12.835 ns .. 12.835 ns $auto$maccmap.cc:240:synth$4415.C[24]
+    13.021 ns .. 13.021 ns $auto$maccmap.cc:240:synth$4415.C[25]
+    13.207 ns .. 13.207 ns $auto$maccmap.cc:240:synth$4415.C[26]
+    13.393 ns .. 13.393 ns $auto$maccmap.cc:240:synth$4415.C[27]
+    13.579 ns .. 13.962 ns $auto$maccmap.cc:240:synth$4415.C[28]
+    14.427 ns .. 17.053 ns lm32_cpu.adder.addsub.tmp_subResult[28]
+    17.714 ns .. 18.583 ns $abc$32574$n2895_1
+    19.048 ns .. 23.865 ns lm32_cpu.x_result[28]
+    24.423 ns .. 25.291 ns $abc$32574$n4920_1
+    25.880 ns .. 29.116 ns lm32_cpu.bypass_data_1[28]
+    29.705 ns .. 31.421 ns lm32_cpu.d_result_1[28]
+    32.083 ns .. 34.098 ns $abc$32574$n3532_1
+                  lcout -> lm32_cpu.mc_arithmetic.b[28]
+
+Total number of logic levels: 38
+Total path delay: 34.66 ns (28.85 MHz)
+

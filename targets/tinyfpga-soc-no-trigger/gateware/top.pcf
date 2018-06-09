@@ -1,0 +1,4 @@
+set_io serial_tx A1
+set_io serial_rx A2
+set_io clk16 B4
+set_io rst E1
