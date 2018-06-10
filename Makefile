@@ -5,19 +5,21 @@ INCDIRS = -I. -I$(RTL)
 
 # Add user sources/include paths here via MY_SOURCES and MY_INCDIRS.
 # Add MY_POST_SYNTH_SOURCES for post synthesis comparison.
+# Add MY_PAR_SOURCES for post-PAR comparison.
 # Add MY_DATA for any data files besides the firmware.
 # Add MY_FIRMWARE for the firmware file you want to use.
 # Also define TB_TOP- root name of top level .v file (without extension)
 # Also define DUT_TOP- root name of top level dut .v file pre-synthesis
 # Also define POST_DUT_TOP- root name of top level dut .v file post-synthesis
 # Also define POST_YS- yosys script to generate post-synthesis
+# Also define PAR_DUT_TOP- root name of top level dut .v file post-PAR
+# Also define PAR_BIT- bitstream to generate post-PAR
 include targets/$(TARGET)/config.mk
 
 INCDIRS += $(MY_INCDIRS)
 
 TARGET_DIR = targets/$(TARGET)
 GATEWARE_DIR = $(TARGET_DIR)/gateware
-SOFTWARE_DIR = $(TARGET_DIR)/software
 BUILD_DIR = build/$(TARGET)
 
 RTL=./extern/lm32/rtl
@@ -35,7 +37,7 @@ SOURCES += $(RTL)/lm32_itlb.v $(RTL)/lm32_dtlb.v
 SOURCES += $(RTL)/lm32_top.v
 
 
-all: sim
+all: sim sim-post-synth sim-par
 
 # Convert the firmware to an appropriate format for iverilog.
 $(BUILD_DIR)/firmware.hex: $(MY_FIRMWARE)
