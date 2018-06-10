@@ -26,12 +26,21 @@ end
 initial rx = 1'b1;
 
 
-top dut(
-    .clk16(sys_clk),
-    .rst(sys_rst),
-    .serial_rx(rx),
-    .serial_tx(tx)
-);
+`ifdef PAR
+	chip dut(
+		.pin_A6(sys_clk),
+		.pin_F1(sys_rst),
+		.pin_D4(tx),
+		.pin_C5(rx)
+	);
+`else
+	top dut(
+	    .clk16(sys_clk),
+	    .rst(sys_rst),
+	    .serial_rx(rx),
+	    .serial_tx(tx)
+	);
+`endif
 
 
 integer j;
@@ -42,13 +51,15 @@ initial begin
 		// 	$dumpvars(0, tinyfpga_soc.dut.lm32_cpu.registers[0]);
 		// end
     `else
-        $dumpfile("tinyfpga-soc-no-trigger.vcd");
-		for(j = 0; j < 32; j = j + 1) begin
-			$dumpvars(0, tinyfpga_soc.dut.lm32_cpu.registers[j]);
-		end
+		`ifdef PAR
+			$dumpfile("tinyfpga-soc-no-trigger-par.vcd");
+		`else
+	        $dumpfile("tinyfpga-soc-no-trigger.vcd");
+			for(j = 0; j < 32; j = j + 1) begin
+				$dumpvars(0, tinyfpga_soc.dut.lm32_cpu.registers[j]);
+			end
+		`endif
     `endif
-
-
 
     $dumpvars(0, tinyfpga_soc);
 end
@@ -56,7 +67,7 @@ end
 
 always @ (posedge sys_clk)
 begin
-    if($time > 110000) begin
+    if($time > 1000000) begin
         $finish;
     end
 end

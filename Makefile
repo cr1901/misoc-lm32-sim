@@ -71,5 +71,26 @@ sim-post-synth: $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp
 	cd $(BUILD_DIR) && vvp $(TB_TOP)-post-synth.vvp
 
 
+# Post-PAR simulation
+par-asc: $(BUILD_DIR)/$(PAR_BIT).asc
+par-synth: $(BUILD_DIR)/$(PAR_DUT_TOP).v
+
+$(BUILD_DIR)/$(PAR_DUT_TOP).v: $(BUILD_DIR)/$(PAR_BIT).asc
+	mkdir -p $(BUILD_DIR)
+	icebox_vlog -l $(BUILD_DIR)/$(PAR_BIT).asc > $(BUILD_DIR)/$(PAR_DUT_TOP).v
+
+$(BUILD_DIR)/$(PAR_BIT).asc: $(GATEWARE_DIR)/$(PAR_BIT).bin
+	mkdir -p $(BUILD_DIR)
+	iceunpack $(GATEWARE_DIR)/$(PAR_BIT).bin $(BUILD_DIR)/$(PAR_BIT).asc
+
+$(BUILD_DIR)/$(TB_TOP)-par.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(PAR_DUT_TOP).v $(MY_PAR_SOURCES) $(BUILD_DIR)/firmware.hex
+	mkdir -p $(BUILD_DIR)
+	iverilog -DPAR -o $(BUILD_DIR)/$(TB_TOP)-par.vvp $(INCDIRS) $(MY_PAR_SOURCES) $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(PAR_DUT_TOP).v
+	cp $(MY_DATA) $(BUILD_DIR)
+
+sim-par: $(BUILD_DIR)/$(TB_TOP)-par.vvp
+	cd $(BUILD_DIR) && vvp $(TB_TOP)-par.vvp
+
+
 clean:
 	rm -rf $(BUILD_DIR)
