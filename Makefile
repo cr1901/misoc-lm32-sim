@@ -10,9 +10,7 @@ INCDIRS = -I. -I$(RTL)
 # Add MY_FIRMWARE for the firmware file you want to use.
 # Also define TB_TOP- root name of top level .v file (without extension)
 # Also define DUT_TOP- root name of top level dut .v file pre-synthesis
-# Also define POST_DUT_TOP- root name of top level dut .v file post-synthesis
 # Also define POST_YS- yosys script to generate post-synthesis
-# Also define PAR_DUT_TOP- root name of top level dut .v file post-PAR
 # Also define PAR_BIT- bitstream to generate post-PAR
 include targets/$(TARGET)/config.mk
 
@@ -57,16 +55,16 @@ sim: $(BUILD_DIR)/$(TB_TOP).vvp
 
 # Post-synthesis simulation
 # Dummy target for checking output.
-post-synth: $(BUILD_DIR)/$(POST_DUT_TOP).v
+post-synth: $(BUILD_DIR)/top-post.v
 
 # Post-synthesis output verilog
-$(BUILD_DIR)/$(POST_DUT_TOP).v: $(GATEWARE_DIR)/$(POST_YS).ys
+$(BUILD_DIR)/top-post.v: $(GATEWARE_DIR)/$(POST_YS).ys
 	mkdir -p $(BUILD_DIR)
-	cd $(GATEWARE_DIR) && yosys -q -l ../../../$(BUILD_DIR)/$(POST_DUT_TOP).rpt $(POST_YS).ys
+	cd $(GATEWARE_DIR) && yosys -q -l ../../../$(BUILD_DIR)/top-post.rpt $(POST_YS).ys
 
-$(BUILD_DIR)/$(TB_TOP)-post-synth.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(POST_DUT_TOP).v $(MY_POST_SYNTH_SOURCES) $(BUILD_DIR)/firmware.hex
+$(BUILD_DIR)/$(TB_TOP)-post-synth.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/top-post.v $(MY_POST_SYNTH_SOURCES) $(BUILD_DIR)/firmware.hex
 	mkdir -p $(BUILD_DIR)
-	iverilog -DPOST_SYNTH -o $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp $(INCDIRS) $(MY_POST_SYNTH_SOURCES) $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(POST_DUT_TOP).v
+	iverilog -DPOST_SYNTH -o $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp $(INCDIRS) $(MY_POST_SYNTH_SOURCES) $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/top-post.v
 	cp $(MY_DATA) $(BUILD_DIR)
 
 sim-post-synth: $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp
@@ -75,19 +73,19 @@ sim-post-synth: $(BUILD_DIR)/$(TB_TOP)-post-synth.vvp
 
 # Post-PAR simulation
 par-asc: $(BUILD_DIR)/$(PAR_BIT).asc
-par-synth: $(BUILD_DIR)/$(PAR_DUT_TOP).v
+par-synth: $(BUILD_DIR)/top-par.v
 
-$(BUILD_DIR)/$(PAR_DUT_TOP).v: $(BUILD_DIR)/$(PAR_BIT).asc
+$(BUILD_DIR)/top-par.v: $(BUILD_DIR)/$(PAR_BIT).asc
 	mkdir -p $(BUILD_DIR)
-	icebox_vlog -l $(BUILD_DIR)/$(PAR_BIT).asc > $(BUILD_DIR)/$(PAR_DUT_TOP).v
+	icebox_vlog -l $(BUILD_DIR)/$(PAR_BIT).asc > $(BUILD_DIR)/top-par.v
 
 $(BUILD_DIR)/$(PAR_BIT).asc: $(GATEWARE_DIR)/$(PAR_BIT).bin
 	mkdir -p $(BUILD_DIR)
 	iceunpack $(GATEWARE_DIR)/$(PAR_BIT).bin $(BUILD_DIR)/$(PAR_BIT).asc
 
-$(BUILD_DIR)/$(TB_TOP)-par.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(PAR_DUT_TOP).v $(MY_PAR_SOURCES) $(BUILD_DIR)/firmware.hex
+$(BUILD_DIR)/$(TB_TOP)-par.vvp: $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/top-par.v $(MY_PAR_SOURCES) $(BUILD_DIR)/firmware.hex
 	mkdir -p $(BUILD_DIR)
-	iverilog -DPAR -o $(BUILD_DIR)/$(TB_TOP)-par.vvp $(INCDIRS) $(MY_PAR_SOURCES) $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/$(PAR_DUT_TOP).v
+	iverilog -DPAR -o $(BUILD_DIR)/$(TB_TOP)-par.vvp $(INCDIRS) $(MY_PAR_SOURCES) $(TARGET_DIR)/$(TB_TOP).v $(BUILD_DIR)/top-par.v
 	cp $(MY_DATA) $(BUILD_DIR)
 
 sim-par: $(BUILD_DIR)/$(TB_TOP)-par.vvp

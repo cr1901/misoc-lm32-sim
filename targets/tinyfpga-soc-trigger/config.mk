@@ -8,9 +8,5 @@ MY_FIRMWARE = targets/$(TARGET)/firmware.elf
 
 TB_TOP=tinyfpga-soc-trigger
 DUT_TOP=top
-
-POST_DUT_TOP=top-post
 POST_YS=top-post
-
-PAR_DUT_TOP=top-par
 PAR_BIT=top
